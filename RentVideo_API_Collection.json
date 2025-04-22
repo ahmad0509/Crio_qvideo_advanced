@@ -1,0 +1,208 @@
+{
+    "info": {
+        "name": "RentVideo API",
+        "description": "API collection for testing RentVideo endpoints.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "AuthController",
+            "item": [
+                {
+                    "name": "Register a New User",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Doe\",\n  \"email\": \"john@example.com\",\n  \"password\": \"password123\",\n  \"role\": \"CUSTOMER\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/register",
+                            "host": ["{{base_url}}"],
+                            "path": ["register"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Login User",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"email\": \"john@example.com\",\n  \"password\": \"password123\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/login",
+                            "host": ["{{base_url}}"],
+                            "path": ["login"]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "RentalController",
+            "item": [
+                {
+                    "name": "Get Active Rentals",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{base_url}}/",
+                            "host": ["{{base_url}}"],
+                            "path": []
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Rent a Video",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/videos/{{videoId}}/rent",
+                            "host": ["{{base_url}}"],
+                            "path": ["videos", "{{videoId}}", "rent"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Return a Rented Video",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/videos/{{videoId}}/return",
+                            "host": ["{{base_url}}"],
+                            "path": ["videos", "{{videoId}}", "return"]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "VideoController",
+            "item": [
+                {
+                    "name": "Get All Available Videos",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{base_url}}/",
+                            "host": ["{{base_url}}"],
+                            "path": []
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get All Videos (Admin only)",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{base_url}}/all",
+                            "host": ["{{base_url}}"],
+                            "path": ["all"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Video by ID",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{base_url}}/{{id}}",
+                            "host": ["{{base_url}}"],
+                            "path": ["{{id}}"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Create a New Video (Admin only)",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"title\": \"The Matrix\",\n  \"director\": \"Wachowski Sisters\",\n  \"genre\": \"Sci-Fi\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/",
+                            "host": ["{{base_url}}"],
+                            "path": []
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update a Video (Admin only)",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"title\": \"The Matrix Reloaded\",\n  \"director\": \"Wachowski Sisters\",\n  \"genre\": \"Sci-Fi/Action\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/{{id}}",
+                            "host": ["{{base_url}}"],
+                            "path": ["{{id}}"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete a Video (Admin only)",
+                    "request": {
+                        "method": "DELETE",
+                        "url": {
+                            "raw": "{{base_url}}/{{id}}",
+                            "host": ["{{base_url}}"],
+                            "path": ["{{id}}"]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        }
+    ]
+}
